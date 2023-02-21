@@ -1,0 +1,60 @@
+body {
+    background: url("https://cdn.pixabay.com/photo/2016/11/23/15/08/wooden-floor-1853417__340.jpg");
+}
+
+footer {
+    display: block;
+        text-align: center;
+    padding: 3px;
+    backround-color: darkcyan;
+    color: white;
+}
+
+
+/*hr*/
+ hr {
+    border: none; /* Убираем границу для браузера Firefox */
+    color: black; /* Цвет линии для остальных браузеров */
+    background-color: black; /* Цвет линии для браузера Firefox и Opera */
+    height: 10px; /* Толщина линии */
+   }
+
+
+
+
+/*body{*/
+/*    background: url("https://bogatyr.club/uploads/posts/2021-11/thumbs/1636951510_2-bogatyr-club-p-zadnii-fon-chernii-2.jpg");*/
+/*}*/
+
+/*footer {*/
+/*  display: block;*/
+/*    text-align: center;*/
+/*  padding: 3px;*/
+/*  background-color: darkolivegreen;*/
+/*  color: wheat;*/
+/*}*/
+
+
+/*!*hr*!*/
+/* hr {*/
+/*    border: none; !* Убираем границу для браузера Firefox *!*/
+/*    color: red; !* Цвет линии для остальных браузеров *!*/
+/*    background-color: red; !* Цвет линии для браузера Firefox и Opera *!*/
+/*    height: 10px; !* Толщина линии *!*/
+/*   }*/
+
+
+/*!*уникальный селектор*!*/
+/*body{*/
+/*    background-color: blueviolet;*/
+/*    color: black;*/
+/*    font-family: Calibri;*/
+/*}*/
+
+/*!*селектор тега*!*/
+/*h1{*/
+/*    color: navy;*/
+/*}*/
+/*!*селектор класса*!*/
+/*.hello{*/
+/*    color: chartreuse;*/
