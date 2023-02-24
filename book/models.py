@@ -24,3 +24,25 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+class Ratingstar(models.Model):
+    value = models.SmallAutoField('значение', default=0)
+
+    def __str__(self):
+        return self.value
+
+    class Meta:
+        verbose_name = "Звезда рейтинга"
+        verbose_name_plural = "Звезды рейтинга"
+        ordering = ["-valie"]
+class Rating(Book):
+    ip = models.CharField('Ip address', max_length=15)
+    star = models.ForeignKey(Ratingstar, on_delete=models.CASCADE, verbose_name="звезда")
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, verbose_name="книга")
+
+    def __str__(self):
+        return f'{self.star} - {self.book}'
+
+    class Meta:
+        verbose_name = "Рейтинг"
+        verbose_name_plural = "Рейтинги"

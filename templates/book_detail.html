@@ -8,10 +8,25 @@
     <img src="{{book_id.image.url}}" alt="" width="400" height="300">
     <p>Колличество серий: <br>{{book_id.quantity}}</p>
     <p>Жанр:<br>{{book_id.genre}}</p>
+    <li>
+        <form action="{% url 'add_rating' %}" method="post" name="ratoing">
+            <b>Рейтинг:</b>
+            {% csrf_token %}
+            <input type="hidden" value="{{ book_id }}" name="book">
+            <span class="rating">
+                {% for k, v in star_form.fields.star.choices %}
+                    <input id="rating{{ v }}" type="radio" name="star" value="{{ v }}">
+                    <label for="rating{{ v }}">{{ k }}</label> }}
+                {% endfor %}
+            </span>
+        </form>
+    </li>
     <p>Видео:<br>
         <iframe src="{{book_id.video}}" frameborder="0"></iframe>
     </p>
     <p>Цена: <br>{{book_id.price}}</p>
+    <button><a href="/book/{{book_id.id}}/update">Изменить данные</a></button>
+    <button><a href="/book/{{book_id.id}}/delete">Удалить фильм</a></button>
 </center>
 <div class="card">
   <div class="card-header">
