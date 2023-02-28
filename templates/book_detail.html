@@ -3,32 +3,32 @@
 {% include 'header.html' %}
 <center>
     <h1>Название книги:<br>{{book_id.title}}</h1>
-    <p>Автор:<br>{{book_id.author}}</p>
-    <p>Описание книги:<br>{{book_id.description}}</p>
-    <img src="{{book_id.image.url}}" alt="" width="400" height="300">
-    <p>Колличество серий: <br>{{book_id.quantity}}</p>
-    <p>Жанр:<br>{{book_id.genre}}</p>
-    <li>
-        <form action="{% url 'add_rating' %}" method="post" name="ratoing">
-            <b>Рейтинг:</b>
-            {% csrf_token %}
-            <input type="hidden" value="{{ book_id }}" name="book">
-            <span class="rating">
-                {% for k, v in star_form.fields.star.choices %}
-                    <input id="rating{{ v }}" type="radio" name="star" value="{{ v }}">
-                    <label for="rating{{ v }}">{{ k }}</label> }}
-                {% endfor %}
-            </span>
-        </form>
-    </li>
+    <p>Автор:<br>{{object.author}}</p>
+    <p>Описание книги:<br>{{object.description}}</p>
+    <img src="{{object.image.url}}" alt="" width="400" height="300">
+    <p>Колличество серий: <br>{{object.quantity}}</p>
+    <p>Жанр:<br>{{object.genre}}</p>
+{#    <li>#}
+{#        <form action="{% url 'add_rating' %}" method="post" name="ratoing">#}
+{#            <b>Рейтинг:</b>#}
+{#            {% csrf_token %}#}
+{#            <input type="hidden" value="{{ book_id }}" name="book">#}
+{#            <span class="rating">#}
+{#                {% for k, v in star_form.fields.star.choices %}#}
+{#                    <input id="rating{{ v }}" type="radio" name="star" value="{{ v }}">#}
+{#                    <label for="rating{{ v }}">{{ k }}</label> }}#}
+{#                {% endfor %}#}
+{#            </span>#}
+{#        </form>#}
+{#    </li>#}
     <p>Видео:<br>
-        <iframe src="{{book_id.video}}" frameborder="0"></iframe>
+        <iframe src="{{object.video}}" frameborder="0"></iframe>
     </p>
-    <p>Цена: <br>{{book_id.price}}</p>
-    <button><a href="/book/{{book_id.id}}/update">Изменить данные</a></button>
-    <button><a href="/book/{{book_id.id}}/delete">Удалить фильм</a></button>
+    <p>Цена: <br>{{object.price}}</p>
+    <button><a href="/book/{{object.id}}/update">Изменить данные</a></button>
+    <button><a href="/book/{{object.id}}/delete">Удалить фильм</a></button>
 </center>
-<div class="card">
+<form class="card">
   <div class="card-header">
     Реклама
   </div>
@@ -41,6 +41,18 @@
 Как было подчеркнуто VideoGameArt&Tidbits в Твиттере еще в 1995 году Nintendo разместила двухстраничную рекламу Кирби Лавина а также Курс мечты Кирби для СНЕС. Но эта реклама не фокусировалась на забавной и милой стороне Кирби — вместо этого она демонстрировала более седого Кирби, которого собирались вызвать в столичное полицейское управление..</p>
     <a href="#" class="btn btn-primary">Перейти на яндекс</a>
   </div>
+</form>
+{% block content %}
+<br>
+<center>
+<div class="comment">
+        {% for comment in comment %}
+            <div class="comment_block">
+                <h6>Коменты: {{ comment.comments }}</h6>
+            </div>
+        {% endfor %}
+    </div>
 </div>
-
+</center>
+{% endblock %}
 {% include 'footer.html' %}

@@ -1,0 +1,13 @@
+{% block content %}
+<br>
+<center>
+<div class="comment">
+        {% for comment in comment %}
+            <div class="comment_block">
+                <h6>Коменты: {{ comment.text }}</h6>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+</center>
+{% endblock %}
