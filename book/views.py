@@ -18,14 +18,7 @@ class BookDetailView(generic.DetailView, ):
     def get_object(self, **kwargs):
         show_id = self.kwargs.get('id')
         return get_object_or_404(models.Book, id=show_id)
-    def get(self, request, id=None ,*args, **kwargs):
-        books=models.Book.objects.get(id=id)
-        data = {
-            "books": books,
-            "comment": books.comment.all(),
-            "forms": CommentForm
-        }
-        return render(request, "book_detail.html", context=data)
+
 
 class BookCreateView(generic.CreateView):
     template_name = 'add-book.html'
