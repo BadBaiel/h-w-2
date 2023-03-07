@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<div>
+    <ol>
+       {% for i in object_list %}
+        <li>ваш ник:
+         {{i.username}}
+        <br>ваш имейл:
+         {{i.email}}
+        <br>ваш пароль:
+         {{i.password1}}
+        <br>
+         {{i.password2}}
+        <br>ваше первое имя:
+         {{i.first_name}}
+        <br>ваше последнее имя:
+         {{i.last_name}}
+        <br>ваш возраст:
+         {{i.age}}
+        <br>
+         {{i.user_type}}
+        <br>ваш генден:
+         {{i.gender}}
+        </li>
+       {% endfor %}
+    </ol>
+</div>  
+
+</body>
+</html>
